@@ -1,10 +1,11 @@
-const express = require('express');
-const multer = require('multer');
-const path = require('path');
-const fs = require('fs');
+import express from 'express';
+import multer from 'multer';
+import path from 'path';
+import fs from 'fs';
+import logger from '../logger.js';
+import connectToDatabase from '../models/db.js';
+
 const router = express.Router();
-const connectToDatabase = require('../models/db');
-const logger = require('../logger');
 
 // Define the upload directory path
 const directoryPath = 'public/images';
@@ -35,7 +36,7 @@ router.get('/', async (req, res, next) => {
         //Step 2: task 4 - insert code here
         res.json(secondChanceItems)
     } catch (e) {
-        logger.console.error('oops something went wrong', e)
+        logger.error('oops something went wrong', e)
         next(e);
     }
 });
@@ -142,4 +143,5 @@ router.delete('/:id', async(req, res,next) => {
     }
 });
 
-module.exports = router;
+//module.exports = router;
+export default router;

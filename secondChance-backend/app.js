@@ -1,11 +1,13 @@
 /*jshint esversion: 8 */
-require('dotenv').config();
-const express = require('express');
-const cors = require('cors');
-const pinoLogger = require('./logger');
+import dotenv from 'dotenv';
+import express from 'express';
+import cors from 'cors';
+import pinoLogger from './logger.js';
 
-const connectToDatabase = require('./models/db');
-const {loadData} = require("./util/import-mongo/index");
+dotenv.config();
+
+import connectToDatabase from './models/db.js';
+import {loadData} from "./util/import-mongo/index.js";
 
 const app = express();
 app.use("*",cors());
@@ -26,14 +28,14 @@ app.use(express.json());
 //{{insert code here}}
 
 // Items API Task 1: import the secondChanceItemsRoutes and store in a constant called secondChanceItemsRoutes
-const secondChanceItemsRoutes = require('./routes/secondChanceItemsRoutes');
+import secondChanceItemsRoutes from './routes/secondChanceItemsRoutes.js';
 
 // Search API Task 1: import the searchRoutes and store in a constant called searchRoutes
 //{{insert code here}}
 
 
-const pinoHttp = require('pino-http');
-const logger = require('./logger');
+import pinoHttp  from 'pino-http';
+import logger from './logger.js';
 
 app.use(pinoHttp({ logger }));
 
