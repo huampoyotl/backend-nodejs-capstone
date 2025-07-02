@@ -1,12 +1,10 @@
-/*jshint esversion: 8 */
 import dotenv from 'dotenv'
 import express from 'express'
 import cors from 'cors'
-import {logger, pinoLogger} from './logger.js'
+import { logger, pinoLogger } from './logger.js'
 import fs from 'fs'
 import connectToDatabase from './models/db.js'
-import {loadData} from "./util/import-mongo/index.js";
-import pinoHttp  from 'pino-http';
+import pinoHttp from 'pino-http'
 
 dotenv.config()
 
