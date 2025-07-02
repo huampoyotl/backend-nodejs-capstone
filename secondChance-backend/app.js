@@ -1,14 +1,15 @@
 /*jshint esversion: 8 */
-import dotenv from 'dotenv';
-import express from 'express';
-import cors from 'cors';
-import pinoLogger from './logger.js';
-import fs from 'fs';
-
-dotenv.config();
-
-import connectToDatabase from './models/db.js';
+import dotenv from 'dotenv'
+import express from 'express'
+import cors from 'cors'
+import {logger, pinoLogger} from './logger.js'
+import fs from 'fs'
+import connectToDatabase from './models/db.js'
 import {loadData} from "./util/import-mongo/index.js";
+import pinoHttp  from 'pino-http';
+
+dotenv.config()
+
 
 const app = express();
 app.use("*",cors());
@@ -34,9 +35,6 @@ import secondChanceItemsRoutes from './routes/secondChanceItemsRoutes.js';
 // Search API Task 1: import the searchRoutes and store in a constant called searchRoutes
 import searchRoutes from './routes/searchRoutes.js';
 
-
-import pinoHttp  from 'pino-http';
-import logger from './logger.js';
 
 app.use(pinoHttp({ logger }));
 
