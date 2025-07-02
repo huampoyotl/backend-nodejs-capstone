@@ -45,7 +45,7 @@ app.post('/sentiment', async (req, res) => {
     logger.info(`Sentiment analysis result: ${analysisResult}`)
 
     // Task 6: send a status code of 200 with both sentiment score and the sentiment txt in the format { sentimentScore: analysisResult, sentiment: sentiment }
-    res.status(200).json({ sentimentScore: analysisResult, sentiment: sentiment })
+    res.status(200).json({ sentimentScore: analysisResult, sentiment })
   } catch (error) {
     logger.error(`Error performing sentiment analysis: ${error}`)
     // Task 7: if there is an error, return a HTTP code of 500 and the json {'message': 'Error performing sentiment analysis'}
