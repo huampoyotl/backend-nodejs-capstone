@@ -1,7 +1,7 @@
 import dotenv from 'dotenv'
 import express from 'express'
 import cors from 'cors'
-import { logger, pinoLogger } from './logger.js'
+import logger from './logger.js'
 import fs from 'fs'
 import connectToDatabase from './models/db.js'
 import pinoHttp from 'pino-http'
@@ -21,7 +21,7 @@ const port = 3060
 
 // Connect to MongoDB; we just do this one time
 connectToDatabase().then(() => {
-  pinoLogger.info('Connected to DB')
+  logger.info('Connected to DB')
 })
   .catch((e) => console.error('Failed to connect to DB', e))
 
