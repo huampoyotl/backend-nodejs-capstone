@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import express from 'express';
 import cors from 'cors';
 import pinoLogger from './logger.js';
+import fs from 'fs';
 
 dotenv.config();
 
@@ -48,6 +49,16 @@ app.use('/api/secondchance/items', secondChanceItemsRoutes);
 
 // Search API Task 2: add the searchRoutes to the server by using the app.use() method.
 app.use('/api/secondchance/search', searchRoutes);
+
+app.use('/images/*', (req, res) => {
+    const imagePath = req.originalUrl.replace('/images/', '');
+    const fullPath = `./public/images/${imagePath}`;
+    if (fs.existsSync(fullPath)) {
+        res.sendFile(fullPath, { root: '.' });
+    } else {
+        res.status(404).send('Image not found');
+    }
+});
 
 
 // Global Error Handler

@@ -35,7 +35,7 @@ export default function Navbar() {
     return (
         <>
             <nav className="navbar navbar-expand-lg navbar-light bg-light" style={{"padding":'.5cm'}} id='navbar_container'>
-        <a className="navbar-brand" href={`${urlConfig.backendUrl}/app`}>SecondChance</a>
+        <a className="navbar-brand" href={`/home.html`}>SecondChance</a>
 
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
