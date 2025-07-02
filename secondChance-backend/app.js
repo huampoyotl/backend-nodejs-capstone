@@ -12,6 +12,7 @@ import authRoutes from './routes/authRoutes.js'
 import secondChanceItemsRoutes from './routes/secondChanceItemsRoutes.js'
 // Search API Task 1: import the searchRoutes and store in a constant called searchRoutes
 import searchRoutes from './routes/searchRoutes.js'
+import authPopulateRoutes from './routes/populate.js'
 
 dotenv.config()
 
@@ -31,6 +32,7 @@ app.use(pinoHttp({ logger }))
 
 // Use Routes
 // authRoutes Step 2: add the authRoutes and to the server by using the app.use() method.
+app.use('/api/populate', authPopulateRoutes)
 app.use('/api/auth', authRoutes)
 
 // Items API Task 2: add the secondChanceItemsRoutes to the server by using the app.use() method.
